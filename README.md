@@ -44,7 +44,7 @@ Using tools like [normalizr](https://github.com/gaearon/normalizr) one can store
   },
 
   recentPosts: {
-    items: [6, 5, 4 /*, ... */],
+    items: ['on-physical-lines-of-force', /*, ... */],
     isLoading: true,
   },
 }
