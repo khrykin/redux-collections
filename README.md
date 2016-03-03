@@ -145,6 +145,7 @@ Fetching child collection:
   );
 
 ```
+
 ## Modules
 
 <dl>
@@ -200,7 +201,7 @@ Sets `isAppending` state on the collection
 
 <a name="module_redux-collections/actionCreators..collectionIsPrepending"></a>
 ### redux-collections/actionCreators~collectionIsPrepending ⇒ <code>Object</code>
-Sets `isAppending` state on the collection
+Sets `isPrepending` state on the collection
 
 **Kind**: inner property of <code>[redux-collections/actionCreators](#module_redux-collections/actionCreators)</code>  
 **Returns**: <code>Object</code> - action  
@@ -343,6 +344,7 @@ Creates a reducer for key: value map
 | --- | --- | --- |
 | map | <code>string</code> | Name of map |
 | [names] | <code>array</code> | Array of names of child ordered collections (if present) |
+
 
 
 ## Contributing

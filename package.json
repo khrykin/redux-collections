@@ -5,8 +5,9 @@
   "keywords": "redux, flux, react, collections, reducers, scrollable list",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "npm build && mocha test --compilers js:babel-register",
-    "build": "babel src -d lib"
+    "test": "mocha test --compilers js:babel-register",
+    "build": "babel src -d lib",
+    "doc": "npm run build && jsdoc2md --src ./lib/*"
   },
   "repository": {
     "type": "git",

@@ -26,6 +26,9 @@ function makeActionCreator(type, ...argNames) {
   }
 }
 
+// EXPORTS
+
+
 /**
  * Appends items to the collection
  *
@@ -80,7 +83,7 @@ export const collectionIsAppending =
   );
 
 /**
- * Sets `isAppending` state on the collection
+ * Sets `isPrepending` state on the collection
  *
  * @param {string} collection
  * @param {string} [map=undefined] - Name of parent map where collection lives
