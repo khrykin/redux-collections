@@ -1,6 +1,6 @@
 {
   "name": "redux-collections",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "One-liners for creating redux reducers for scrollable, editable lists. No dependencies.",
   "main": "./lib/index.js",
   "scripts": {
