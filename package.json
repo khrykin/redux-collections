@@ -2,6 +2,7 @@
   "name": "redux-collections",
   "version": "1.0.0",
   "description": "One-liners for creating redux reducers for scrollable, editable lists. No dependencies.",
+  "keywords": "redux, flux, react, collections, reducers, scrollable list",
   "main": "./lib/index.js",
   "scripts": {
     "test": "npm build && mocha test --compilers js:babel-register",
