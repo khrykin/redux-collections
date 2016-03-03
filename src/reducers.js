@@ -148,7 +148,10 @@ function mapReducer(map, collections, state, action) {
       case MAP_EDIT:
         return {
           ...state,
-          [action.id]: action.item
+          [action.id]: {
+            ...state[action.id],
+            ...action.props
+          }
         }
 
       case MAP_IS_EDITING:

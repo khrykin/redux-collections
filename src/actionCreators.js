@@ -206,7 +206,7 @@ export const mapRemove =
  *
  * @param {string} map - Name of the map
  * @param {Number} id - Key of object in map
- * @param {Object} item - Object to place at given key in map
+ * @param {Object} props - Object with edited props
  * @return {Object} action
  */
 
@@ -214,7 +214,7 @@ export const mapEdit =
   makeActionCreator(MAP_EDIT,
     'map',
     'id',
-    'item'
+    'props'
   );
 
 /**

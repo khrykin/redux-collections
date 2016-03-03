@@ -217,7 +217,10 @@ describe('redux-collections', () => {
         expect(json(this.reducer(this.state,
           mapEdit('posts', 2, { title: 'Edited' })
         )))
-        .toEqual(json({ ...this.state, 2: {  title: 'Edited' } }));
+        .toEqual(json({ ...this.state, 2: {
+          ...this.state[2],
+          title: 'Edited'
+        } }));
       });
 
       it('should set isEditing', function () {
