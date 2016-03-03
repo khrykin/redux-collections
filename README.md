@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/redux-collections.svg)](https://badge.fury.io/js/redux-collections)
+[![Build Status](https://travis-ci.org/khrykin/redux-collections.svg?branch=master)](https://travis-ci.org/khrykin/redux-collections)
+
 # Redux Collections
 #### One-liners for creating redux reducers for scrollable, editable lists. No dependencies.
 
