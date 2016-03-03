@@ -8,6 +8,7 @@ import {
   COLLECTION_IS_APPENDING,
   COLLECTION_IS_PREPENDING,
   COLLECTION_ERROR,
+  COLLECTION_IS_COMPLETE,
 
   MAP_ADD,
   MAP_REMOVE,
@@ -15,6 +16,7 @@ import {
   MAP_IS_EDITING,
   MAP_RESET,
 } from './actions';
+
 
 function makeActionCreator(type, ...argNames) {
   return function(...args) {
@@ -26,8 +28,10 @@ function makeActionCreator(type, ...argNames) {
   }
 }
 
-// EXPORTS
+// Workaround for jsdoc2md not generting
+// info for first export
 
+export const dummy = () => {};
 
 /**
  * Appends items to the collection
@@ -149,6 +153,22 @@ export const collectionError =
   makeActionCreator(COLLECTION_ERROR,
     'collection',
     'error',
+    'map',
+    'parentId'
+  );
+
+/**
+ * Sets `isComplete` state on collection
+ *
+ * @param {string} collection
+ * @param {string} [map=undefined] - Name of parent map where collection lives
+ * @param {Number|String} [parentId=undefined] - Key of parent map where collection lives
+ * @return {Object} action
+ */
+
+export const collectionIsComplete =
+  makeActionCreator(COLLECTION_IS_COMPLETE,
+    'collection',
     'map',
     'parentId'
   );

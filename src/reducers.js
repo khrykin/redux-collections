@@ -8,6 +8,7 @@ import {
   COLLECTION_IS_APPENDING,
   COLLECTION_IS_PREPENDING,
   COLLECTION_ERROR,
+  COLLECTION_IS_COMPLETE,
 
   MAP_ADD,
   MAP_REMOVE,
@@ -80,6 +81,13 @@ function collectionReducer(collection, parentId=null, state, action) {
           items: state.items,
           error: action.error
         };
+
+      case COLLECTION_IS_COMPLETE:
+        return {
+          items: state.items,
+          isComplete: true
+        };
+
       default:
         return state;
     }

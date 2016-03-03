@@ -145,7 +145,6 @@ Fetching child collection:
   );
 
 ```
-
 ## Modules
 
 <dl>
@@ -159,17 +158,33 @@ Fetching child collection:
 ## redux-collections/actionCreators
 
 * [redux-collections/actionCreators](#module_redux-collections/actionCreators)
+    * [~collectionAppend](#module_redux-collections/actionCreators..collectionAppend) ⇒ <code>Object</code>
     * [~collectionPrepend](#module_redux-collections/actionCreators..collectionPrepend) ⇒ <code>Object</code>
     * [~collectionIsAppending](#module_redux-collections/actionCreators..collectionIsAppending) ⇒ <code>Object</code>
     * [~collectionIsPrepending](#module_redux-collections/actionCreators..collectionIsPrepending) ⇒ <code>Object</code>
     * [~collectionRemove](#module_redux-collections/actionCreators..collectionRemove) ⇒ <code>Object</code>
     * [~collectionReset](#module_redux-collections/actionCreators..collectionReset) ⇒ <code>Object</code>
     * [~collectionError](#module_redux-collections/actionCreators..collectionError) ⇒ <code>Object</code>
+    * [~collectionIsComplete](#module_redux-collections/actionCreators..collectionIsComplete) ⇒ <code>Object</code>
     * [~mapAdd](#module_redux-collections/actionCreators..mapAdd) ⇒ <code>Object</code>
     * [~mapRemove](#module_redux-collections/actionCreators..mapRemove) ⇒ <code>Object</code>
     * [~mapEdit](#module_redux-collections/actionCreators..mapEdit) ⇒ <code>Object</code>
     * [~mapIsEditing](#module_redux-collections/actionCreators..mapIsEditing) ⇒ <code>Object</code>
     * [~mapReset](#module_redux-collections/actionCreators..mapReset) ⇒ <code>Object</code>
+
+<a name="module_redux-collections/actionCreators..collectionAppend"></a>
+### redux-collections/actionCreators~collectionAppend ⇒ <code>Object</code>
+Appends items to the collection
+
+**Kind**: inner property of <code>[redux-collections/actionCreators](#module_redux-collections/actionCreators)</code>  
+**Returns**: <code>Object</code> - action  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| collection | <code>string</code> |  |
+| items | <code>array</code> |  |
+| [map] | <code>string</code> | Name of parent map where collection lives |
+| [parentId] | <code>Number</code> &#124; <code>String</code> | Key of parent map where collection lives |
 
 <a name="module_redux-collections/actionCreators..collectionPrepend"></a>
 ### redux-collections/actionCreators~collectionPrepend ⇒ <code>Object</code>
@@ -251,6 +266,19 @@ Sets error on collection
 | --- | --- | --- |
 | collection | <code>string</code> |  |
 | items | <code>string</code> &#124; <code>object</code> |  |
+| [map] | <code>string</code> | Name of parent map where collection lives |
+| [parentId] | <code>Number</code> &#124; <code>String</code> | Key of parent map where collection lives |
+
+<a name="module_redux-collections/actionCreators..collectionIsComplete"></a>
+### redux-collections/actionCreators~collectionIsComplete ⇒ <code>Object</code>
+Sets `isComplete` state on collection
+
+**Kind**: inner property of <code>[redux-collections/actionCreators](#module_redux-collections/actionCreators)</code>  
+**Returns**: <code>Object</code> - action  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| collection | <code>string</code> |  |
 | [map] | <code>string</code> | Name of parent map where collection lives |
 | [parentId] | <code>Number</code> &#124; <code>String</code> | Key of parent map where collection lives |
 
@@ -344,8 +372,6 @@ Creates a reducer for key: value map
 | --- | --- | --- |
 | map | <code>string</code> | Name of map |
 | [names] | <code>array</code> | Array of names of child ordered collections (if present) |
-
-
 
 ## Contributing
 

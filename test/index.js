@@ -10,7 +10,9 @@ import {
   collectionReset,
   collectionIsAppending,
   collectionIsPrepending,
+  collectionComplete,
   collectionError,
+  collectionIsComplete,
 
   mapAdd,
   mapRemove,
@@ -61,67 +63,65 @@ describe('redux-collections', () => {
         .toEqual(json(state));
       });
 
-      it('should append items', function () {
-        const state = { items: [1, 2, 3] };
+      beforeEach(function () {
+        this.state = { items: [1, 2, 3] };
+      });
 
-        expect(json(this.reducer(state,
+      it('should append items', function () {
+        expect(json(this.reducer(this.state,
           collectionAppend('posts', [4, 5, 6])
         )))
         .toEqual(json({ items: [1, 2, 3, 4, 5, 6] }))
       });
 
       it('should prepend items', function () {
-        const state = { items: [4,5,6] };
-
-        expect(json(this.reducer(state,
+        this.state = { items: [4,5,6] };
+        expect(json(this.reducer(this.state,
           collectionPrepend('posts', [1, 2, 3])
         )))
-        .toEqual(json({ items: [1, 2, 3, 4, 5, 6] }))
+        .toEqual(json({ items: [1, 2, 3, ...this.state.items] }))
       });
 
       it('should set isAppending', function () {
-        const state = { items: [] };
-
-        expect(this.reducer(state,
+        expect(json(this.reducer(this.state,
           collectionIsAppending('posts')
-        ).isAppending)
-        .toEqual(true);
+        )))
+        .toEqual(json({ ...this.state, isAppending: true }));
       });
 
       it('should set isPrepending', function () {
-        const state = { items: [] };
-
-        expect(this.reducer(state,
+        expect(json(this.reducer(this.state,
           collectionIsPrepending('posts')
-        ).isPrepending)
-        .toEqual(true);
+        )))
+        .toEqual(json({ ...this.state, isPrepending: true }));
       });
 
       it('should remove items', function () {
-        const state = { items: [1, 2, 3] };
-
-        expect(json(this.reducer(state,
+        expect(json(this.reducer(this.state,
           collectionRemove('posts', 2)
         )))
         .toEqual(json({ items: [1, 3] }));
       });
 
       it('should reset state', function () {
-        const state = { items: [1, 2, 3] };
-
-        expect(json(this.reducer(state,
+        expect(json(this.reducer(this.state,
           collectionReset('posts', [4, 5, 6])
         )))
         .toEqual(json({ items: [4, 5, 6] }));
       });
 
       it('should set error', function () {
-        const state = { items: [1, 2, 3] };
-
-        expect(json(this.reducer(state,
+        expect(json(this.reducer(this.state,
           collectionError('posts', 'Error')
         )))
-        .toEqual(json({ items: [1, 2, 3], error: 'Error' }));
+        .toEqual(json({...this.state, error: 'Error' }));
+      });
+
+      it('should set isComplete state', function () {
+        expect(json(this.reducer(this.state,
+          collectionIsComplete('posts')
+        )))
+        .toEqual(json({ ...this.state, isComplete: true }));
       });
 
     });
@@ -288,6 +288,12 @@ describe('redux-collections', () => {
         .toEqual(json({ items: [ 1, 2, 3 ], error: 'Error' }));
       });
 
+      it('should set `isComplete` state on child collection', function () {
+        expect(json(this.reducer(this.state,
+          collectionIsComplete('comments', 'posts', 1)
+        )[1].comments))
+        .toEqual(json({ items: [ 1, 2, 3 ], isComplete: true }));
+      });
 
     });
 

@@ -11,3 +11,4 @@ export const COLLECTION_RESET = '@@redux-collections/COLLECTION_RESET';
 export const COLLECTION_IS_APPENDING = '@@redux-collections/COLLECTION_IS_APPENDING';
 export const COLLECTION_IS_PREPENDING = '@@redux-collections/COLLECTION_IS_PREPENDING';
 export const COLLECTION_ERROR = '@@redux-collections/COLLECTION_ERROR';
+export const COLLECTION_IS_COMPLETE = '@@redux-collections/COLLECTION_IS_COMPLETE';
