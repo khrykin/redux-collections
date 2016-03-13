@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/khrykin/redux-collections.svg?branch=master)](https://travis-ci.org/khrykin/redux-collections)
 
 # Redux Collections
-#### One-liners for creating redux reducers for scrollable, editable lists. No dependencies.
+#### One-liners for creating redux reducers and action creators for scrollable, editable lists. No dependencies.
 
 This module provides methods for creating reducers for ordered or key-value state to be used in [redux](https://github.com/reactjs/redux) apps.
 

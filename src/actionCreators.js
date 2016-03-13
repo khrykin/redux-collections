@@ -202,7 +202,7 @@ export const mapRemove =
   );
 
 /**
- * Resets object at given key in map
+ * Inject props with merging at given key in map
  *
  * @param {string} map - Name of the map
  * @param {Number} id - Key of object in map
@@ -216,6 +216,7 @@ export const mapEdit =
     'id',
     'props'
   );
+
 
 /**
  * Sets `isEditing` state on object at given key in map
