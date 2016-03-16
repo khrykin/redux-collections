@@ -164,7 +164,7 @@ describe('redux-collections', () => {
               items: [1, 2, 3]
             },
             events: {
-              items: [1,2,3]
+              items: [1, 2, 3]
             }
           },
           2: {
@@ -272,9 +272,9 @@ describe('redux-collections', () => {
 
       it('should remove items from child collection', function () {
         expect(json(this.reducer(this.state,
-          collectionRemove('comments', 2, 'posts', 1)
+          collectionRemove('comments', 1, 'posts', 1)
         )[1].comments.items))
-        .toEqual(json([1,3]));
+        .toEqual(json([2, 3]));
       });
 
       it('should reset child collection state', function () {

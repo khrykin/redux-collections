@@ -308,7 +308,7 @@ Removes object from map at given key
 
 <a name="module_redux-collections/actionCreators..mapEdit"></a>
 ### redux-collections/actionCreators~mapEdit ⇒ <code>Object</code>
-Resets object at given key in map
+Inject props with merging at given key in map
 
 **Kind**: inner property of <code>[redux-collections/actionCreators](#module_redux-collections/actionCreators)</code>  
 **Returns**: <code>Object</code> - action  
@@ -317,7 +317,7 @@ Resets object at given key in map
 | --- | --- | --- |
 | map | <code>string</code> | Name of the map |
 | id | <code>Number</code> | Key of object in map |
-| item | <code>Object</code> | Object to place at given key in map |
+| props | <code>Object</code> | Object with edited props |
 
 <a name="module_redux-collections/actionCreators..mapIsEditing"></a>
 ### redux-collections/actionCreators~mapIsEditing ⇒ <code>Object</code>

@@ -52,7 +52,7 @@ function collectionReducer(collection, parentId=null, state, action) {
 
         let newState = [...state.items];
 
-        if (index) {
+        if (index > -1) {
           newState.splice(index, 1);
         }
         return {
