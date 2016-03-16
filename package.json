@@ -1,6 +1,6 @@
 {
   "name": "redux-collections",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "One-liners for creating redux reducers and action creators for scrollable, editable lists. No dependencies.",
   "keywords": "redux, flux, react, collections, reducers, scrollable list",
   "main": "./lib/index.js",
