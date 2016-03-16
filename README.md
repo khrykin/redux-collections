@@ -347,11 +347,11 @@ Completely resets map with given object
 ## redux-collections/reducers
 
 * [redux-collections/reducers](#module_redux-collections/reducers)
-    * [~collection(collection)](#module_redux-collections/reducers..collection) ⇒ <code>function</code>
-    * [~map(map, [names])](#module_redux-collections/reducers..map) ⇒ <code>function</code>
+    * [~collection(collection, [mixin])](#module_redux-collections/reducers..collection) ⇒ <code>function</code>
+    * [~map(map, [names], [mixin])](#module_redux-collections/reducers..map) ⇒ <code>function</code>
 
 <a name="module_redux-collections/reducers..collection"></a>
-### redux-collections/reducers~collection(collection) ⇒ <code>function</code>
+### redux-collections/reducers~collection(collection, [mixin]) ⇒ <code>function</code>
 Creates a reducer for ordered collection
 
 **Kind**: inner method of <code>[redux-collections/reducers](#module_redux-collections/reducers)</code>  
@@ -360,9 +360,10 @@ Creates a reducer for ordered collection
 | Param | Type | Description |
 | --- | --- | --- |
 | collection | <code>string</code> | Name of collection |
+| [mixin] | <code>function</code> | Mixin reducer |
 
 <a name="module_redux-collections/reducers..map"></a>
-### redux-collections/reducers~map(map, [names]) ⇒ <code>function</code>
+### redux-collections/reducers~map(map, [names], [mixin]) ⇒ <code>function</code>
 Creates a reducer for key: value map
 
 **Kind**: inner method of <code>[redux-collections/reducers](#module_redux-collections/reducers)</code>  
@@ -372,6 +373,7 @@ Creates a reducer for key: value map
 | --- | --- | --- |
 | map | <code>string</code> | Name of map |
 | [names] | <code>array</code> | Array of names of child ordered collections (if present) |
+| [mixin] | <code>function</code> | Mixin reducer |
 
 ## Contributing
 

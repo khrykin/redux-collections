@@ -18,16 +18,26 @@ import {
 } from './actions';
 
 
-function collectionReducer(collection, parentId=null, state, action) {
-  const defaultState = { items: [] };
-  return (state = defaultState, action) => {
+function decorateStateWithMixin(state, action, mixin) {
+  return mixin ? mixin(state, action) : state;
+}
+
+function isArray(a, debug) {
+  const type = Object.prototype.toString.call( a );
+  return debug ? type : type === '[object Array]';
+}
+
+function collectionReducer(collection, parentId=null, mixin) {
+  return (state = { items: [] }, action) => {
 
     const passThrough = (
-      !action || action.collection !== collection ||
+      !action ||
+      !action.collection ||
+      action.collection !== collection ||
       (typeof action.parentId !== 'undefined' && action.parentId !== parentId)
     );
 
-    if (passThrough) return state;
+    if (passThrough) return decorateStateWithMixin(state, action, mixin);
 
     switch (action.type) {
       case COLLECTION_APPEND:
@@ -89,7 +99,7 @@ function collectionReducer(collection, parentId=null, state, action) {
         };
 
       default:
-        return state;
+        return decorateStateWithMixin(state, action, mixin);
     }
   }
 }
@@ -105,7 +115,9 @@ function reduceChild(id, collections, state, action) {
   };
 };
 
-function mapReducer(map, collections, state, action) {
+
+
+function mapReducer(map, collections, mixin) {
   return (state = {}, action) => {
 
     const passThrough = (
@@ -128,7 +140,7 @@ function mapReducer(map, collections, state, action) {
       typeof state[action.parentId] !== 'undefined'
     );
 
-    if (passThrough) return state;
+    if (passThrough) return decorateStateWithMixin(state, action, mixin);
 
     if (updateChild) {
       return reduceChild(action.parentId, collections, state, action);
@@ -167,21 +179,23 @@ function mapReducer(map, collections, state, action) {
         return { ...action.items };
 
       default:
-        return state;
+        return decorateStateWithMixin(state, action, mixin);
     }
   }
 }
 
-function isArray(a, debug) {
-  const type = Object.prototype.toString.call( a );
-  return debug ? type : type === '[object Array]';
-}
 
-function collectionWithParentId(collection, parentId) {
+
+function collectionWithParentId(collection, parentId, mixin) {
   if (typeof collection !== 'string') {
     throw new TypeError(`collection bust be a string, but got ${typeof collection}`)
+  } else if (
+      mixin &&
+      typeof mixin !== 'function'
+    ) {
+      throw new TypeError(`mixin bust be a function, but got ${typeof mixin}`)
   } else {
-    return collectionReducer(collection, parentId);
+    return collectionReducer(collection, parentId, mixin);
   }
 }
 
@@ -192,11 +206,12 @@ function collectionWithParentId(collection, parentId) {
  * Creates a reducer for ordered collection
  *
  * @param {string} collection - Name of collection
+ * @param {function} [mixin] - Mixin reducer
  * @return {function} reducer
  */
 
-export function collection(collection) {
-  return collectionWithParentId(collection);
+export function collection(collection, mixin) {
+  return collectionWithParentId(collection, null, mixin);
 }
 
 /**
@@ -204,18 +219,24 @@ export function collection(collection) {
  *
  * @param {string} map - Name of map
  * @param {array} [names] - Array of names of child ordered collections (if present)
+ * @param {function} [mixin] - Mixin reducer
  * @return {function} reducer
  */
 
-export function map(map, collections) {
+export function map(map, collections, mixin) {
   if (typeof map !== 'string') {
     throw new TypeError(`map bust be a string, but got ${typeof map}`)
   } else if (
-      typeof collections !== 'undefined' &&
+      collections &&
       !isArray(collections)
     ){
       throw new TypeError(`collections bust be an array, but got ${isArray(collections, true)}`);
+  } else if (
+      mixin &&
+      typeof mixin !== 'function'
+    ) {
+      throw new TypeError(`mixin bust be a function, but got ${typeof mixin}`)
   } else {
-    return mapReducer(map, collections);
+    return mapReducer(map, collections, mixin);
   }
 }
