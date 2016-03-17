@@ -2,6 +2,7 @@ export const MAP_ADD = '@@redux-collections/MAP_ADD';
 export const MAP_REMOVE = '@@redux-collections/MAP_REMOVE';
 export const MAP_EDIT = '@@redux-collections/MAP_EDIT';
 export const MAP_IS_EDITING = '@@redux-collections/MAP_IS_EDITING';
+export const MAP_IS_LOADING = '@@redux-collections/MAP_IS_LOADING';
 export const MAP_RESET = '@@redux-collections/MAP_RESET';
 
 export const COLLECTION_APPEND = '@@redux-collections/COLLECTION_APPEND';

@@ -18,6 +18,8 @@ import {
   mapRemove,
   mapEdit,
   mapIsEditing,
+  mapIsLoading,
+
   mapReset,
 } from '../lib';
 
@@ -244,6 +246,13 @@ describe('redux-collections', () => {
           mapIsEditing('posts', 1)
         )[1]))
         .toEqual(json({ ...this.state[1], isEditing: true }));
+      });
+
+      it('should set isLoading', function () {
+        expect(json(this.reducer(this.state,
+          mapIsLoading('posts', 1)
+        )[1]))
+        .toEqual(json({ ...this.state[1], isLoading: true }));
       });
 
       it('should reset map', function () {

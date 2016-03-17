@@ -58,7 +58,7 @@ Aim of this package is to maintain such a structures, including appending, prepe
 
 ```javascript
 
-import { combineReducers, createStore} from 'redux';
+import { combineReducers, createStore } from 'redux';
 
 import {
   collection,
@@ -92,7 +92,7 @@ const { dispatch } = store;
 
 /* Somewhere before fetching response */
 
-  dispatch(collectionIsAppending('recentPosts'))
+  dispatch(collectionIsAppending('recentPosts'));
 
 /* Somewhere after fetching and normalizing response */
 
@@ -125,7 +125,7 @@ const { dispatch } = store;
   dispatch(collectionError('recentPosts', 'Network Timeout'));
 
 ```
-Fetching child collection:
+Fetching child collection in a map: 
 
 ```javascript
 
@@ -170,6 +170,7 @@ Fetching child collection:
     * [~mapRemove](#module_redux-collections/actionCreators..mapRemove) ⇒ <code>Object</code>
     * [~mapEdit](#module_redux-collections/actionCreators..mapEdit) ⇒ <code>Object</code>
     * [~mapIsEditing](#module_redux-collections/actionCreators..mapIsEditing) ⇒ <code>Object</code>
+    * [~mapIsLoading](#module_redux-collections/actionCreators..mapIsLoading) ⇒ <code>Object</code>
     * [~mapReset](#module_redux-collections/actionCreators..mapReset) ⇒ <code>Object</code>
 
 <a name="module_redux-collections/actionCreators..collectionAppend"></a>
@@ -331,6 +332,18 @@ Sets `isEditing` state on object at given key in map
 | map | <code>string</code> | Name of the map |
 | id | <code>Number</code> | Key of object in map |
 
+<a name="module_redux-collections/actionCreators..mapIsLoading"></a>
+### redux-collections/actionCreators~mapIsLoading ⇒ <code>Object</code>
+Sets `isLoading` state on object at given key in map
+
+**Kind**: inner property of <code>[redux-collections/actionCreators](#module_redux-collections/actionCreators)</code>  
+**Returns**: <code>Object</code> - action  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| map | <code>string</code> | Name of the map |
+| id | <code>Number</code> | Key of object in map |
+
 <a name="module_redux-collections/actionCreators..mapReset"></a>
 ### redux-collections/actionCreators~mapReset ⇒ <code>Object</code>
 Completely resets map with given object
@@ -374,6 +387,7 @@ Creates a reducer for key: value map
 | map | <code>string</code> | Name of map |
 | [names] | <code>array</code> | Array of names of child ordered collections (if present) |
 | [mixin] | <code>function</code> | Mixin reducer |
+
 
 ## Contributing
 

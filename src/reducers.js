@@ -14,6 +14,7 @@ import {
   MAP_REMOVE,
   MAP_EDIT,
   MAP_IS_EDITING,
+  MAP_IS_LOADING,
   MAP_RESET,
 } from './actions';
 
@@ -172,6 +173,15 @@ function mapReducer(map, collections, mixin) {
           [action.id]: {
             ...state[action.id],
             isEditing: true
+          }
+        }
+
+      case MAP_IS_LOADING:
+        return {
+          ...state,
+          [action.id]: {
+            ...state[action.id],
+            isLoading: true
           }
         }
 
