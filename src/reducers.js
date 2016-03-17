@@ -191,7 +191,8 @@ function mapReducer(map, collections, mixin) {
           ...state,
           [action.id]: {
             ...state[action.id],
-            error: action.error
+            error: action.error,
+            isLoading: false
           }
         }
 

@@ -259,7 +259,7 @@ describe('redux-collections', () => {
         expect(json(this.reducer(this.state,
           mapError('posts', 1, "Error")
         )[1]))
-        .toEqual(json({ ...this.state[1], error: "Error" }));
+        .toEqual(json({ ...this.state[1], error: "Error", isLoading: false }));
       });
 
       it('should reset map', function () {
