@@ -15,6 +15,7 @@ import {
   MAP_EDIT,
   MAP_IS_EDITING,
   MAP_IS_LOADING,
+  MAP_ERROR,
   MAP_RESET,
 } from './actions';
 
@@ -245,6 +246,23 @@ export const mapIsLoading =
   makeActionCreator(MAP_IS_LOADING,
     'map',
     'id'
+  );
+
+
+/**
+ * Sets error on object at given key in map
+ *
+ * @param {string} map - Name of the map
+ * @param {Number} id - Key of object in map
+ * @param {string|object} error  - Key of object in map
+ * @return {Object} action
+ */
+
+export const mapError =
+  makeActionCreator(MAP_ERROR,
+    'map',
+    'id',
+    'error'
   );
 
 /**

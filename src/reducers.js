@@ -15,6 +15,7 @@ import {
   MAP_EDIT,
   MAP_IS_EDITING,
   MAP_IS_LOADING,
+  MAP_ERROR,
   MAP_RESET,
 } from './actions';
 
@@ -182,6 +183,15 @@ function mapReducer(map, collections, mixin) {
           [action.id]: {
             ...state[action.id],
             isLoading: true
+          }
+        }
+
+      case MAP_ERROR:
+        return {
+          ...state,
+          [action.id]: {
+            ...state[action.id],
+            error: action.error
           }
         }
 

@@ -125,7 +125,7 @@ const { dispatch } = store;
   dispatch(collectionError('recentPosts', 'Network Timeout'));
 
 ```
-Fetching child collection in a map: 
+Fetching child collection in a map:
 
 ```javascript
 
@@ -171,6 +171,7 @@ Fetching child collection in a map:
     * [~mapEdit](#module_redux-collections/actionCreators..mapEdit) ⇒ <code>Object</code>
     * [~mapIsEditing](#module_redux-collections/actionCreators..mapIsEditing) ⇒ <code>Object</code>
     * [~mapIsLoading](#module_redux-collections/actionCreators..mapIsLoading) ⇒ <code>Object</code>
+    * [~mapError](#module_redux-collections/actionCreators..mapError) ⇒ <code>Object</code>
     * [~mapReset](#module_redux-collections/actionCreators..mapReset) ⇒ <code>Object</code>
 
 <a name="module_redux-collections/actionCreators..collectionAppend"></a>
@@ -344,6 +345,19 @@ Sets `isLoading` state on object at given key in map
 | map | <code>string</code> | Name of the map |
 | id | <code>Number</code> | Key of object in map |
 
+<a name="module_redux-collections/actionCreators..mapError"></a>
+### redux-collections/actionCreators~mapError ⇒ <code>Object</code>
+Sets error on object at given key in map
+
+**Kind**: inner property of <code>[redux-collections/actionCreators](#module_redux-collections/actionCreators)</code>  
+**Returns**: <code>Object</code> - action  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| map | <code>string</code> | Name of the map |
+| id | <code>Number</code> | Key of object in map |
+| error | <code>string</code> &#124; <code>object</code> | Key of object in map |
+
 <a name="module_redux-collections/actionCreators..mapReset"></a>
 ### redux-collections/actionCreators~mapReset ⇒ <code>Object</code>
 Completely resets map with given object
@@ -387,7 +401,6 @@ Creates a reducer for key: value map
 | map | <code>string</code> | Name of map |
 | [names] | <code>array</code> | Array of names of child ordered collections (if present) |
 | [mixin] | <code>function</code> | Mixin reducer |
-
 
 ## Contributing
 

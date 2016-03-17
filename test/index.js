@@ -19,7 +19,7 @@ import {
   mapEdit,
   mapIsEditing,
   mapIsLoading,
-
+  mapError,
   mapReset,
 } from '../lib';
 
@@ -253,6 +253,13 @@ describe('redux-collections', () => {
           mapIsLoading('posts', 1)
         )[1]))
         .toEqual(json({ ...this.state[1], isLoading: true }));
+      });
+
+      it('should set error', function () {
+        expect(json(this.reducer(this.state,
+          mapError('posts', 1, "Error")
+        )[1]))
+        .toEqual(json({ ...this.state[1], error: "Error" }));
       });
 
       it('should reset map', function () {
