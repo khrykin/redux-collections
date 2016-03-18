@@ -145,7 +145,7 @@ export const collectionReset =
  * Sets error on collection
  *
  * @param {string} collection
- * @param {string | object} items
+ * @param {string | object} error
  * @param {string} [map=undefined] - Name of parent map where collection lives
  * @param {Number|String} [parentId=undefined] - Key of parent map where collection lives
  * @return {Object} action

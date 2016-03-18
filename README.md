@@ -1,5 +1,6 @@
 [![npm version](https://badge.fury.io/js/redux-collections.svg)](https://badge.fury.io/js/redux-collections)
 [![Build Status](https://travis-ci.org/khrykin/redux-collections.svg?branch=master)](https://travis-ci.org/khrykin/redux-collections)
+![npm](https://img.shields.io/npm/dm/redux-collections.svg)
 
 # Redux Collections
 #### One-liners for creating redux reducers and action creators for scrollable, editable lists. No dependencies.
@@ -267,7 +268,7 @@ Sets error on collection
 | Param | Type | Description |
 | --- | --- | --- |
 | collection | <code>string</code> |  |
-| items | <code>string</code> &#124; <code>object</code> |  |
+| error | <code>string</code> &#124; <code>object</code> |  |
 | [map] | <code>string</code> | Name of parent map where collection lives |
 | [parentId] | <code>Number</code> &#124; <code>String</code> | Key of parent map where collection lives |
 
@@ -401,6 +402,7 @@ Creates a reducer for key: value map
 | map | <code>string</code> | Name of map |
 | [names] | <code>array</code> | Array of names of child ordered collections (if present) |
 | [mixin] | <code>function</code> | Mixin reducer |
+
 
 ## Contributing
 

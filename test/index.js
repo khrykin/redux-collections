@@ -59,15 +59,6 @@ describe('redux-collections', () => {
         this.reducer = collection('posts', mixin);
       });
 
-      // it('should return same state for foreign parentId', function () {
-      //   const state = collection('posts');
-      //
-      //   expect(json(this.reducer(state,
-      //     collectionAppend('posts', [1], 'posts', 2)
-      //   )))
-      //   .toEqual(json(state));
-      // });
-
       beforeEach(function () {
         this.state = { items: [1, 2, 3] };
       });
