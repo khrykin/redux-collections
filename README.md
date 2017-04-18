@@ -1,6 +1,11 @@
 [![npm version](https://badge.fury.io/js/redux-collections.svg)](https://badge.fury.io/js/redux-collections)
 [![Build Status](https://travis-ci.org/khrykin/redux-collections.svg?branch=master)](https://travis-ci.org/khrykin/redux-collections)
 
+# [DEPRECATED] 
+This package was based on really bad pattern that pushes you to use multiple dispatches in the same place - actually a very very bad thing to do (In React you would trigger multiple rerenders, may lose some data between them, etc). 
+My advice is to design for a single dispatch within given scope and move complexity to reducer logic instead!
+
+
 # Redux Collections
 #### One-liners for creating redux reducers and action creators for scrollable, editable lists. No dependencies.
 
